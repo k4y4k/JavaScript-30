@@ -59,3 +59,8 @@ p {
 .digital-clock {
   display: flex;
 }
+
+/* As in: class applied every 0th second */
+.zeroth {
+  transition: all 0ms;
+}

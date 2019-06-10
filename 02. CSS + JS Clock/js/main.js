@@ -28,6 +28,11 @@ const changeAnalogClock = (now) => {
   // The hour hand is 0 - 12 so it's a bit different
   const hoursDegrees = (hours / 12) * 360 + 90;
 
+  // Thank you, The Saggitarius Me: http://thesagittariusme.blogspot.com/2017/01/js30-day2-clock.html
+  seconds === 0
+    ? secondHand.classList.add('zeroth')
+    : secondHand.classList.remove('zeroth');
+
   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
   minHand.style.transform = `rotate(${minsDegrees}deg)`;
   hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
