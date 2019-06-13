@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/by-k4y4k/JavaScript-30#readme",
   "dependencies": {
-    "stylelint": "^10.1.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.13.0",
+    "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0"
   }
 }
