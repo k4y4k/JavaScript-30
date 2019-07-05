@@ -1,5 +1,3 @@
-/* eslint-disable require-jsdoc */
-
 function debounce(func, wait = 20, immediate = true) {
   let timeout;
   return function() {
@@ -18,9 +16,7 @@ function debounce(func, wait = 20, immediate = true) {
 
 const sliderImages = document.querySelectorAll('.slide-in');
 
-function checkSlide(e) {
-  // Console.count(e);
-
+function checkSlide() {
   sliderImages.forEach((sliderImage) => {
     // 1. Figure out where the bottom of the viewport is
     // 2. Figure out where the middle of the image is (to decide visibility)
@@ -43,8 +39,6 @@ function checkSlide(e) {
     } else {
       sliderImage.classList.remove('active');
     }
-
-    console.log(imageBottom);
   });
 }
 
