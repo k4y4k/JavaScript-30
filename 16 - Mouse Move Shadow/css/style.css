@@ -1,0 +1,25 @@
+html {
+  color: black;
+  font-family: "Noto Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #000000;
+  background: linear-gradient(to top, #585f6e, #000000);
+  transition: 600ms all ease-in-out;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+h1 {
+  font-size: 100px;
+  letter-spacing: -3px;
+color: rgba(17, 103, 134, 0.7),
+}
