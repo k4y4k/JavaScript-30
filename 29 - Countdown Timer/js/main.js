@@ -3,8 +3,11 @@ const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time');
 const endTimeTime = document.querySelector('span');
 const buttons = document.querySelectorAll('[data-time]');
-let customMessageText;
 
+/**
+ * Controls the timer.
+ * @param {number} seconds The number of seconds to count down.
+ */
 function timer(seconds) {
   // Clear any existing timers
   clearInterval(countdown);
@@ -26,7 +29,11 @@ function timer(seconds) {
     displayTimeLeft(secondsLeft);
   }, 1000);
 }
-
+/**
+ * Displays the time left, as well as handles text changes when all time has
+ * been elapsed.
+ * @param {number} seconds The number of seconds to count down.
+ */
 function displayTimeLeft(seconds) {
   let secondsLeft = seconds;
 
@@ -50,7 +57,10 @@ function displayTimeLeft(seconds) {
     endTimeTime.textContent = '';
   }
 }
-
+/**
+ * Handles displaying of the time when the countdown will finish
+ * @param {any} timestamp
+ */
 function displayEndTime(timestamp) {
   const end = new Date(timestamp);
   const hour = end.getHours();
@@ -62,6 +72,9 @@ function displayEndTime(timestamp) {
   endTime.textContent = 'Be back at';
 }
 
+/**
+ * Starts the timer.
+ */
 function startTimer() {
   const seconds = parseInt(this.dataset.time);
   timer(seconds);
@@ -76,5 +89,3 @@ document.customForm.addEventListener('submit', function(e) {
 });
 
 timer(2);
-
-// TODO: switchable 12/24h time
