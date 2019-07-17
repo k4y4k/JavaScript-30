@@ -58,9 +58,7 @@ const playSound = (e) => {
   if (index == undefined) return console.error('no matching key :(');
 
   // But if we DO have a match...
-
   const audioToPlay = audioList[index];
-
   const keyPressed = keyList[index];
 
   // If you mash a letter, we don't want to wait the 1+ seconds for the audio
@@ -93,21 +91,40 @@ window.addEventListener('keydown', playSound);
 
 const layoutCheckboxLabels = document.querySelectorAll('label');
 
-function changeLayout(textObj, layoutName) {
+console.log(`chosenLayout is ${chosenLayout}`);
+/** Handles changing of letters on keys according to keymap
+ * @param {array} textArr The keymaps to be read
+ * @param {string} layoutName The name of the currently selected layout
+ */
+function changeLayout(textArr, layoutName) {
   const layoutKeys = Array.from(allKeys);
 
   if (layoutName) {
+    // This index selects which of three (0/1/2) subarrays (keymaps) to pick
+    let layoutIndex;
+
+    if (layoutName === 'qwerty') {
+      layoutIndex = 0;
+    } else if (layoutName === 'colemak') {
+      layoutIndex = 1;
+    } else {
+      layoutIndex = 2;
+    }
+
     layoutKeys.map((key, i) => {
-      // Key.children[0].textContent = textObj[layoutName][i + 1].toUpperCase();
+      key.children[0].textContent = textArr[layoutIndex][
+          i
+      ].letter.toUpperCase();
     });
+
+    // Finally, update the global var
+    chosenLayout = layoutName;
   }
 }
 
 layoutCheckboxLabels.forEach(function(checkbox) {
   return checkbox.addEventListener('click', function(e) {
     chosenLayout = e.target.htmlFor;
-    return changeLayout(layouts, e.target.htmlFor);
+    return changeLayout(layouts, chosenLayout);
   });
 });
-
-changeLayout();
