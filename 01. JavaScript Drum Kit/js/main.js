@@ -1,9 +1,67 @@
-const playSound = (e) => {
-  const audioToPlay = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-  const keyPressed = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+let chosenLayout = 'qwerty';
+const audioList = document.querySelectorAll('audio[data-index');
+const keyList = document.querySelectorAll('.key[data-index]');
 
-  // If there is no audio to play, we don't want to do anything more...
-  if (!audioToPlay) return;
+// Our bible of mappings
+const layouts = [
+  [
+    {letter: 'a', keyCode: 65},
+    {letter: 's', keyCode: 83},
+    {letter: 'd', keyCode: 68},
+    {letter: 'f', keyCode: 70},
+    {letter: 'g', keyCode: 71},
+    {letter: 'h', keyCode: 72},
+    {letter: 'j', keyCode: 74},
+    {letter: 'k', keyCode: 75},
+    {letter: 'l', keyCode: 76},
+  ],
+  [
+    {letter: 'a', keyCode: 65},
+    {letter: 'r', keyCode: 82},
+    {letter: 's', keyCode: 83},
+    {letter: 't', keyCode: 84},
+    {letter: 'd', keyCode: 68},
+    {letter: 'h', keyCode: 72},
+    {letter: 'n', keyCode: 78},
+    {letter: 'e', keyCode: 69},
+    {letter: 'i', keyCode: 73},
+  ],
+  [
+    {letter: 'a', keyCode: 65},
+    {letter: 'o', keyCode: 79},
+    {letter: 'e', keyCode: 69},
+    {letter: 'u', keyCode: 85},
+    {letter: 'i', keyCode: 73},
+    {letter: 'd', keyCode: 68},
+    {letter: 'h', keyCode: 72},
+    {letter: 't', keyCode: 84},
+    {letter: 'n', keyCode: 78},
+  ],
+];
+
+const findSound = (e) => {
+  // Here we scan for the index of the key that has a matching keyCode to us
+  for (let i = 0; i < layouts[0].length; i++) {
+    if (layouts[0][i].keyCode === e.keyCode) {
+      return i;
+    }
+  }
+};
+
+const playSound = (e) => {
+  // When we press a key:
+
+  // We get the index of the key with the corresponding letter:
+  const index = findSound(e);
+
+  // If there's no matching key (i.e. we've pressed Q), stop everything
+  if (index == undefined) return console.error('no matching key :(');
+
+  // But if we DO have a match...
+
+  const audioToPlay = audioList[index];
+
+  const keyPressed = keyList[index];
 
   // If you mash a letter, we don't want to wait the 1+ seconds for the audio
   // File to be done, we want sounds and lots of 'em
@@ -33,42 +91,6 @@ window.addEventListener('keydown', playSound);
 
 // Let's let the user change the keys they have to press to use the drum kit
 
-const layouts = {
-  qwerty: {
-    1: 'a',
-    2: 's',
-    3: 'd',
-    4: 'f',
-    5: 'g',
-    6: 'h',
-    7: 'j',
-    8: 'k',
-    9: 'l',
-  },
-  colemak: {
-    1: 'a',
-    2: 'r',
-    3: 's',
-    4: 't',
-    5: 'd',
-    6: 'h',
-    7: 'n',
-    8: 'e',
-    9: 'i',
-  },
-  dvorak: {
-    1: 'a',
-    2: 'o',
-    3: 'e',
-    4: 'u',
-    5: 'i',
-    6: 'd',
-    7: 'h',
-    8: 't',
-    9: 'n',
-  },
-};
-
 const layoutCheckboxLabels = document.querySelectorAll('label');
 
 function changeLayout(textObj, layoutName) {
@@ -76,13 +98,14 @@ function changeLayout(textObj, layoutName) {
 
   if (layoutName) {
     layoutKeys.map((key, i) => {
-      key.children[0].textContent = textObj[layoutName][i + 1].toUpperCase();
+      // Key.children[0].textContent = textObj[layoutName][i + 1].toUpperCase();
     });
   }
 }
 
 layoutCheckboxLabels.forEach(function(checkbox) {
   return checkbox.addEventListener('click', function(e) {
+    chosenLayout = e.target.htmlFor;
     return changeLayout(layouts, e.target.htmlFor);
   });
 });
