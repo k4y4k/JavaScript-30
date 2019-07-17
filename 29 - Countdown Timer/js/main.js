@@ -1,9 +1,9 @@
-/* eslint-disable require-jsdoc */
 let countdown;
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time');
 const endTimeTime = document.querySelector('span');
 const buttons = document.querySelectorAll('[data-time]');
+let customMessageText;
 
 function timer(seconds) {
   // Clear any existing timers
@@ -63,7 +63,6 @@ function displayEndTime(timestamp) {
 }
 
 function startTimer() {
-  console.log(this.dataset.time);
   const seconds = parseInt(this.dataset.time);
   timer(seconds);
 }
@@ -76,8 +75,6 @@ document.customForm.addEventListener('submit', function(e) {
   this.reset();
 });
 
-timer(100);
+timer(2);
 
-// TODO: countdown hours
 // TODO: switchable 12/24h time
-// TODO: "time over!" when time is elapsed
