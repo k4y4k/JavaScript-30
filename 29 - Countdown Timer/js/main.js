@@ -29,6 +29,7 @@ function timer(seconds) {
     displayTimeLeft(secondsLeft);
   }, 1000);
 }
+
 /**
  * Displays the time left, as well as handles text changes when all time has
  * been elapsed.
@@ -57,6 +58,7 @@ function displayTimeLeft(seconds) {
     endTimeTime.textContent = '';
   }
 }
+
 /**
  * Handles displaying of the time when the countdown will finish
  * @param {any} timestamp
