@@ -28,14 +28,17 @@ function timer(seconds) {
 }
 
 function displayTimeLeft(seconds) {
-  const minutesRemaining = Math.floor(seconds / 60);
-  const secondsRemaining = seconds % 60;
+  let secondsLeft = seconds;
 
-  const display =
-    ' ' +
-    `${minutesRemaining}:${
-      secondsRemaining < 10 ? '0' + secondsRemaining : secondsRemaining
-    }`;
+  const hours = Math.floor(secondsLeft / 3600);
+  secondsLeft = secondsLeft % 3600;
+
+  const minutes = Math.floor(secondsLeft / 60);
+  secondsLeft = secondsLeft % 60;
+
+  const display = `${hours < 10 ? '0' + hours : hours}:${
+    minutes < 10 ? '0' + minutes : minutes
+  }:${secondsLeft < 10 ? '0' + secondsLeft : secondsLeft}`;
 
   timerDisplay.textContent = display;
   document.title = `${display} remaining`;
