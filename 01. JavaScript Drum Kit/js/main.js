@@ -1,4 +1,5 @@
 let chosenLayout = 'qwerty';
+let chosenLayoutIndex = 0;
 const audioList = document.querySelectorAll('audio[data-index');
 const keyList = document.querySelectorAll('.key[data-index]');
 
@@ -41,8 +42,8 @@ const layouts = [
 
 const findSound = (e) => {
   // Here we scan for the index of the key that has a matching keyCode to us
-  for (let i = 0; i < layouts[0].length; i++) {
-    if (layouts[0][i].keyCode === e.keyCode) {
+  for (let i = 0; i < layouts[chosenLayoutIndex].length; i++) {
+    if (layouts[chosenLayoutIndex][i].keyCode === e.keyCode) {
       return i;
     }
   }
@@ -91,7 +92,6 @@ window.addEventListener('keydown', playSound);
 
 const layoutCheckboxLabels = document.querySelectorAll('label');
 
-console.log(`chosenLayout is ${chosenLayout}`);
 /** Handles changing of letters on keys according to keymap
  * @param {array} textArr The keymaps to be read
  * @param {string} layoutName The name of the currently selected layout
@@ -110,6 +110,8 @@ function changeLayout(textArr, layoutName) {
     } else {
       layoutIndex = 2;
     }
+
+    chosenLayoutIndex = layoutIndex;
 
     layoutKeys.map((key, i) => {
       key.children[0].textContent = textArr[layoutIndex][
