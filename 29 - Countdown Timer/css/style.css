@@ -1,13 +1,18 @@
 html {
   box-sizing: border-box;
   font-size: 10px;
-  background: #8e24aa;
-  background: linear-gradient(45deg, #42a5f5 0%, #478ed1 50%, #0d47a1 100%);
+  background: #232526; /* fallback for old browsers */
+  background-image:
+    linear-gradient(
+      to bottom,
+      #414345,
+      #232526
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -51,7 +56,6 @@ body {
 }
 
 .timer__button {
-  background: none;
   border: 0;
   cursor: pointer;
   color: white;
@@ -79,6 +83,24 @@ body {
 }
 
 .display__end-time {
+  margin-left: 20px;
+}
+
+.display__end-time,
+.display__end-timestamp {
   font-size: 4rem;
   color: white;
+  margin: 0 10px;
+}
+
+.display__footer {
+  display: flex;
+  align-content: center;
+
+  /* flex-grow: 2; */
+}
+
+.footer__hint {
+  color: #fff;
+  font-size: 2rem;
 }

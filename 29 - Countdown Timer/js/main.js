@@ -2,6 +2,7 @@
 let countdown;
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time');
+const endTimeTime = document.querySelector('span');
 const buttons = document.querySelectorAll('[data-time]');
 
 function timer(seconds) {
@@ -29,9 +30,12 @@ function timer(seconds) {
 function displayTimeLeft(seconds) {
   const minutesRemaining = Math.floor(seconds / 60);
   const secondsRemaining = seconds % 60;
-  const display = `${minutesRemaining}:${
-    secondsRemaining < 10 ? '0' + secondsRemaining : secondsRemaining
-  }`;
+
+  const display =
+    ' ' +
+    `${minutesRemaining}:${
+      secondsRemaining < 10 ? '0' + secondsRemaining : secondsRemaining
+    }`;
 
   timerDisplay.textContent = display;
   document.title = `${display} remaining`;
@@ -42,7 +46,7 @@ function displayEndTime(timestamp) {
   const hour = end.getHours();
   const minutes = end.getMinutes();
 
-  endTime.textContent = `Be back at ${hour > 12 ? hour - 12 : hour}:${
+  endTimeTime.textContent = `${hour > 12 ? hour - 12 : hour}:${
     minutes < 10 ? '0' + minutes : minutes
   }`;
 }
@@ -64,6 +68,5 @@ document.customForm.addEventListener('submit', function(e) {
 timer(100);
 
 // TODO: countdown hours
-// TODO: customisable "be back at" message
 // TODO: switchable 12/24h time
 // TODO: "time over!" when time is elapsed
