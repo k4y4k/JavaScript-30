@@ -42,6 +42,13 @@ function displayTimeLeft(seconds) {
 
   timerDisplay.textContent = display;
   document.title = `${display} remaining`;
+
+  if (seconds === 0) {
+    document.title = 'All done!';
+    timerDisplay.textContent = 'Time up!';
+    endTime.textContent = 'Choose an option above to start a new timer.';
+    endTimeTime.textContent = '';
+  }
 }
 
 function displayEndTime(timestamp) {
@@ -52,6 +59,7 @@ function displayEndTime(timestamp) {
   endTimeTime.textContent = `${hour > 12 ? hour - 12 : hour}:${
     minutes < 10 ? '0' + minutes : minutes
   }`;
+  endTime.textContent = 'Be back at';
 }
 
 function startTimer() {
