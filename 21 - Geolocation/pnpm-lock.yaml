@@ -355,6 +355,7 @@ packages:
       is-glob: 2.0.1
       path-is-absolute: 1.0.1
       readdirp: 2.2.1
+    deprecated: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.
     dev: true
     optionalDependencies:
       fsevents: 1.2.9
@@ -872,10 +873,13 @@ packages:
       - node-pre-gyp
     dependencies:
       nan: 2.14.0
+    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
     dev: true
     engines:
       node: '>=4.0'
     optional: true
+    os:
+      - darwin
     requiresBuild: true
     resolution:
       integrity: sha512-oeyj2H3EjjonWcFjD5NvZNE9Rqe4UW+nQBU2HNeKw0koVLEFIhtyETyAakeAM3de7Z/SW5kcA+fZUait9EApnw==
@@ -924,6 +928,7 @@ packages:
     dependencies:
       ajv: 4.11.8
       har-schema: 1.0.5
+    deprecated: this library is no longer supported
     dev: true
     engines:
       node: '>=4'
@@ -1886,6 +1891,7 @@ packages:
       tough-cookie: 2.3.4
       tunnel-agent: 0.6.0
       uuid: 3.3.2
+    deprecated: 'request has been deprecated, see https://github.com/request/request/issues/3142'
     dev: true
     engines:
       node: '>= 4'
@@ -1906,6 +1912,7 @@ packages:
     resolution:
       integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
   /resolve-url/0.2.1:
+    deprecated: 'https://github.com/lydell/resolve-url#deprecated'
     dev: true
     resolution:
       integrity: sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
@@ -2350,6 +2357,7 @@ packages:
     resolution:
       integrity: sha1-g3aHP30jNRef+x5vw6jtDfyKtVk=
   /urix/0.1.0:
+    deprecated: 'Please see https://github.com/lydell/urix#deprecated'
     dev: true
     resolution:
       integrity: sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
@@ -2486,4 +2494,4 @@ packages:
     resolution:
       integrity: sha1-AI4G2AlDIMNy28L47XagymyKxBk=
 specifiers:
-  browser-sync: ^2.12.5 <2.23.2
+  browser-sync: 2.23.1
