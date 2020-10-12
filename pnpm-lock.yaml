@@ -2,7 +2,7 @@ devDependencies:
   eslint: 7.9.0
   eslint-config-google: 0.14.0_eslint@7.9.0
   stylelint: 13.7.2
-  stylelint-config-standard: 18.3.0_stylelint@13.7.2
+  stylelint-config-standard: 20.0.0_stylelint@13.7.2
 lockfileVersion: 5.1
 packages:
   /@babel/code-frame/7.0.0:
@@ -1947,23 +1947,23 @@ packages:
     dev: true
     resolution:
       integrity: sha1-eVjHk+R+MuB9K1yv5cC/jhLneQI=
-  /stylelint-config-recommended/2.2.0_stylelint@13.7.2:
+  /stylelint-config-recommended/3.0.0_stylelint@13.7.2:
     dependencies:
       stylelint: 13.7.2
     dev: true
     peerDependencies:
-      stylelint: ^8.3.0 || ^9.0.0 || ^10.0.0
+      stylelint: '>=10.1.0'
     resolution:
-      integrity: sha512-bZ+d4RiNEfmoR74KZtCKmsABdBJr4iXRiCso+6LtMJPw5rd/KnxUWTxht7TbafrTJK1YRjNgnN0iVZaJfc3xJA==
-  /stylelint-config-standard/18.3.0_stylelint@13.7.2:
+      integrity: sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==
+  /stylelint-config-standard/20.0.0_stylelint@13.7.2:
     dependencies:
       stylelint: 13.7.2
-      stylelint-config-recommended: 2.2.0_stylelint@13.7.2
+      stylelint-config-recommended: 3.0.0_stylelint@13.7.2
     dev: true
     peerDependencies:
-      stylelint: ^8.3.0 || ^9.0.0 || ^10.0.0
+      stylelint: '>=10.1.0'
     resolution:
-      integrity: sha512-Tdc/TFeddjjy64LvjPau9SsfVRexmTFqUhnMBrzz07J4p2dVQtmpncRF/o8yZn8ugA3Ut43E6o1GtjX80TFytw==
+      integrity: sha512-IB2iFdzOTA/zS4jSVav6z+wGtin08qfj+YyExHB3LF9lnouQht//YyB0KZq9gGz5HNPkddHOzcY8HsUey6ZUlA==
   /stylelint/13.7.2:
     dependencies:
       '@stylelint/postcss-css-in-js': 0.37.2_1a4170a4ed8f49a38632b7bc0ed90898
@@ -2313,4 +2313,4 @@ specifiers:
   eslint: 7.9.0
   eslint-config-google: 0.14.0
   stylelint: 13.7.2
-  stylelint-config-standard: 18.3.0
+  stylelint-config-standard: 20.0.0
